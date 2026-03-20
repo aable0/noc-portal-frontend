@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import './index.css';
 import axios from 'axios';
 
@@ -58,4 +59,8 @@ const Index = () => {
     )
 }
 
-root.render(<Index />)
+root.render(
+  <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT}>
+    <Index />
+  </GoogleOAuthProvider>
+);
